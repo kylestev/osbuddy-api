@@ -1,4 +1,3 @@
-const qs = require('qs')
 const _ = require('lodash')
 const { createHttpClient } = require('./client')
 const { GrandExchangeBuilder } = require('./builders')
@@ -31,7 +30,6 @@ function getTimestampRange(captures) {
 
   return Interval.fromDateTimes(start, end)
 }
-
 
 function getHourlyPrices(itemId) {
   const ge = new GrandExchange()

@@ -2,7 +2,7 @@
   "name": "osbuddy-api",
   "version": "0.1.0",
   "description": "OSBuddy Exchange API",
-  "main": "api.js",
+  "main": "bundle.js",
   "repository": "https://github.com/kylestev/osbuddy-api",
   "author": "Kyle Stevenson <kyle@kylestevenson.me>",
   "license": "MIT",
@@ -12,5 +12,11 @@
     "lodash": "^4.17.5",
     "luxon": "^0.4.0",
     "qs": "^6.5.1"
+  },
+  "scripts": {
+    "prepublish": "rollup api.js --output.format cjs --output.file bundle.js"
+  },
+  "devDependencies": {
+    "rollup": "^0.55.5"
   }
 }

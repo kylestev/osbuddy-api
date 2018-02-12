@@ -27,7 +27,7 @@ function createAxios (opts) {
     timeout: 15e3,
     headers: ChromeHeaders
   }
-  const client = Axios.create({ ...defaults, ...opts })
+  const client = Axios.create(Object.assign({}, defaults, opts))
   // const reqDebugger = makeDebug('[request]')
   client.interceptors.request.use(function (req) {
     debug('[request]', req.url)

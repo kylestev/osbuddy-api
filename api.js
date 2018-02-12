@@ -47,8 +47,7 @@ function getHourlyPrices(itemId) {
       return {
         itemId,
         interval: span.toISO(),
-        records: captures.map(x => ({
-          ...x,
+        records: captures.map(x => Object.assign({}, x, {
           timestamp: x.timestamp.valueOf()
         }))
       }

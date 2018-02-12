@@ -14,10 +14,9 @@ class RequestBuilder {
   }
 
   param(key, value) {
-    this.params = {
-      ...this.params,
+    this.params = Object.assign({}, this.params, {
       [key]: value
-    }
+    })
     return this
   }
 

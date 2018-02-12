@@ -36,7 +36,7 @@ function getHourlyPrices(itemId) {
   return ge.graph(graph =>
     graph
       .itemId(itemId)
-      .start(start)
+      .start(DateTime.local().minus({ weeks: 50 }))
       .period(60)
   )
     .then(data => _.sortBy(data, [x => +x.timestamp]))

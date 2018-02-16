@@ -5,6 +5,17 @@ const debug = require('debug')('osbuddy-api:api')
 const { transformGEGraphEntry } = require('./transformers/grandExchangeTransforms')
 const { DateTime, Duration, Interval } = require('luxon')
 
+class Statistics {
+  constructor (client = null) {
+    this.client = client || createHttpClient()
+  }
+
+  onlineUsers () {
+    return this.client.get('stats')
+      .then(({ data }) => data)
+  }
+}
+
 class GrandExchange {
   constructor (client = null) {
     this.client = client || createHttpClient()
@@ -56,5 +67,6 @@ function getHourlyPrices(itemId) {
 
 module.exports = {
   GrandExchange,
+  Statistics,
   getHourlyPrices
 }
